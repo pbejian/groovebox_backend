@@ -18,11 +18,7 @@ import helmet from "helmet";
 //import errorHandler from "./src/utils/errorHandler.js";
 
 // express router
-// import userRouter from "./src/user/user.route.js";
-// import contactRouter from "./src/contact/contact.route.js";
-// import testRouter from "./src/test/test.route.js";
-// import authRouter from "./src/auth/auth.route.js";
-// import formRouter from "./src/form/form.route.js";
+import usersRouter from "./routes/users.js"
 
 // bodyparser
 app.use(express.urlencoded({ extended: true }));
@@ -61,14 +57,7 @@ app.use(
 app.use(helmet());
 
 // api routes
-// app.use("/api/user", userRouter);
-// app.use("/api/contact", contactRouter);
-
-// if (process.env.NODE_ENV !== "prod")
-//   app.use("/api/test", testRouter);
-
-// app.use("/api/auth", authRouter);
-// app.use("/api/form", formRouter);
+app.use(usersRouter);
 
 app.use(express.static("public"));
 
