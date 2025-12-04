@@ -13,9 +13,7 @@ import morgan from "morgan";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import helmet from "helmet";
-
-// error
-//import errorHandler from "./src/utils/errorHandler.js";
+import initDBConnect from "./utils/mongoose.js";
 
 // express router
 import usersRouter from "./routes/users.js"
@@ -56,6 +54,8 @@ app.use(
 // add security headers
 app.use(helmet());
 
+initDBConnect();
+
 // api routes
 app.use(usersRouter);
 
@@ -64,9 +64,6 @@ app.use(express.static("public"));
 app.get("/", (req, res) => {
   return res.status(200).json({ ok: true });
 });
-
-// return error
-// app.use(errorHandler);
 
 // app ready
 if (process.env.NODE_ENV !== "test") {

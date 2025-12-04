@@ -9,7 +9,7 @@ export default class Regex {
     // - une minuscule
     // - un chiffre
     // - un caractère spéciale dont: #?!@$%^&*-
-    return /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])$/.test(value)
+    return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(value)
   }
 
   phoneRegex(value) {
